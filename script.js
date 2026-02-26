@@ -13,23 +13,25 @@ options.forEach(option => {
             computer.classList.remove("shakeComputer");
             player.classList.remove("shakePlayer");
 
+           const playerChoice = option.innerHTML.toLowerCase();
 
-            player.src= "/assets/"+option.innerHTML+"-player.jpeg";
+            player.src= `assets/${playerChoice}-player.jpeg`;
 
             const choice = ["rock","paper","scissors"];
-            let arrayNo = Math.floor(Math.random()*3);
-            let computerChoice = choice[arrayNo];
-            computer.src = "/assets/"+computerChoice+"-computer.jpeg";
+
+            let computerChoice = choice[Math.floor(Math.random()*3)];
+
+            computer.src = `assets/${computerChoice}-computer.jpeg`;
 
              let cPoints = parseInt(computerPoints.innerHTML);
             let pPoints = parseInt(playerPoints.innerHTML);
 
-         if(option.innerHTML === "rock"){
+         if(playerChoice === "rock"){
              if(computerChoice === "paper")
                     computerPoints.innerHTML = cPoints+1;
                 else if(computerChoice === "scissors")
                     playerPoints.innerHTML = pPoints+1;
-            }else if(option.innerHTML === "paper"){
+            }else if(playerChoice === "paper"){
                 if(computerChoice === "scissors")
                   computerPoints.innerHTML = cPoints+1;
                 else if(computerChoice === "rock")
